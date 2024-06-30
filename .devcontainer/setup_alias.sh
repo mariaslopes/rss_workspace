@@ -17,6 +17,8 @@ setup_alias_in_shell() {
 # Setup alias for sourcing workspace
 setup_alias_in_zsh "wssetup" "source ${ROOT}/devel/setup.zsh"
 setup_alias_in_bash "wssetup" "source ${ROOT}/devel/setup.bash"
+setup_alias_in_bash "init" "cd workspaces/rss_workspace/; ./scripts/start_smb_tmux.sh"
+setup_alias_in_bash "ntmux" "./scripts/start_smb_tmux.sh"
 
 ## Setup alias for other commands
 ## Example: define ROS_MASTER_URI and ROS_IP for connecting to SMB
@@ -42,6 +44,8 @@ connect-smb() {
     printenv ROS_IP
 }
 EOF
+
+setup_alias_in_shell "connect-smb262" "export ROS_MASTER_URI=http://10.0.2.5:11311 && export ROS_IP=$(hostname -I | awk '{print $1}')"
 
 # Catkin build memory & job limit
 setup_alias_in_shell "build-limit" "catkin build --jobs 8 --mem-limit 70%"
