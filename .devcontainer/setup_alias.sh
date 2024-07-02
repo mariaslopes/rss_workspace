@@ -45,7 +45,7 @@ connect-smb() {
 }
 EOF
 
-setup_alias_in_shell "connect-smb262" "export ROS_MASTER_URI=http://10.0.2.5:11311 && export ROS_IP=$(hostname -I | awk '{print $1}')"
+setup_alias_in_shell "connect-smb" "export ROS_MASTER_URI=http://10.0.2.5:11311; export ROS_IP=10.0.2.209""
 
 # Catkin build memory & job limit
 setup_alias_in_shell "build-limit" "catkin build --jobs 8 --mem-limit 70%"
